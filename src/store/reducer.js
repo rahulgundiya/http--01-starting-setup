@@ -2,19 +2,19 @@ const initialState ={
     counter:0
 }
 const reducer=(state=initialState ,action)=>{
-    if(action.type==='INCREMENT'){
-        return { counter: state.counter+1 }
-    }
-    if(action.type==='DECREMENT' && state.counter !==0)
+    switch(action.type)
     {
+     case 'INCREMENT':
+            return { counter: state.counter+1 }
+        
+
+    case 'DECREMENT':
         return {counter:state.counter-1}
-    }
-    if(action.type==='ADD')
-    {
-        return {counter:state.counter+action.value}
-    }
-    if(action.type==='SUBSTRACT')
-    {
+    
+   case 'ADD':
+    return {counter:state.counter + action.value}
+
+    case 'SUBSTRACT':
         return {counter:state.counter - action.value}
     }
     return state;
