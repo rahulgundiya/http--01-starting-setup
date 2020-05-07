@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
+
 import CounterControl from '../../components/CounterControl/CounterControl';
 import CounterOutput from '../../components/CounterOutput/CounterOutput';
 
@@ -54,3 +55,5 @@ const mapStateToProps = state=>{
 }
 
 export default connect(mapStateToProps)(Counter);
+
+
