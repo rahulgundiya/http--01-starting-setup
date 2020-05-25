@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import nextId from "react-id-generator";
-
-import * as actionTypes from '../../store/action'
+//import * as actionTypes from '../../store/actions/actionsTypes'
 //import * as actionTypes from '../../store/action'
-import * as actionCreatores from '../../store/action'
-
+import * as actionCreatores from '../../store/actions/Index'
 import CounterControl from '../../components/CounterControl/CounterControl';
 import CounterOutput from '../../components/CounterOutput/CounterOutput';
 
