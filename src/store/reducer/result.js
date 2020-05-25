@@ -10,7 +10,7 @@ const reducer=(state=initialState ,action)=>{
         return {
             ...state,
             result:state.result.concat({id:new Date() , 
-                value:action.result})
+                value:action.result*2})
         }
 
     case actionTypes.DELETE_RESULT:
