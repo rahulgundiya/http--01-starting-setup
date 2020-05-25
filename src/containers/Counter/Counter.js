@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
+import nextId from "react-id-generator";
+
 import * as actionTypes from '../../store/action'
 //import * as actionTypes from '../../store/action'
 import * as actionCreatores from '../../store/action'
@@ -8,8 +10,10 @@ import CounterControl from '../../components/CounterControl/CounterControl';
 import CounterOutput from '../../components/CounterOutput/CounterOutput';
 
 class Counter extends Component {
-    
+    htmlId = nextId();
+
     render () {
+        console.log('My data' , this.props.storedResult);
         return (
             <div>
                 <CounterOutput value={this.props.ctr} />
@@ -22,10 +26,13 @@ class Counter extends Component {
                 <CounterControl label="Subtract 15" clicked={
                     this.props.substractCounter}  />
                     <hr/>
-                 <button onClick={()=>this.props.storeResult(this.props.ctr)}>Store Result</button>
+                 <button onClick={()=>
+                    this.props.storeResult(this.props.ctr)}>
+                        Store Result</button>
                  <ul >
                  {this.props.storedResult.map(result=>(                       
-             <li key={result.id} onClick={()=>this.props.deleteResult(result.id)}>{result.value}</li>
+             <li key={result.id} onClick={()=>
+                this.props.deleteResult(result.id)}>{result.value}</li>
              
                  ))} 
                      </ul>   

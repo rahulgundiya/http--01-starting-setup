@@ -6,6 +6,7 @@ import {createStore ,combineReducers , applyMiddleware ,compose} from 'redux'
 import * as serviceWorker from './serviceWorker';
 import counterReducer from '../src/store/reducer/counter'
 import resultReducer from '../src/store/reducer/result'
+import thunk from 'redux-thunk'
 import {Provider} from 'react-redux'
 const rootReducer =combineReducers({
   ctr:counterReducer,
@@ -23,7 +24,7 @@ const logger=store=>{
   }
 }
 const composeEnhancers = window['__REDUX_DEVTOOLS_EXTENSION_COMPOSE__'] || compose;
-const store = createStore(rootReducer ,composeEnhancers(applyMiddleware(logger)));
+const store = createStore(rootReducer ,composeEnhancers(applyMiddleware(logger,thunk)));
 
 ReactDOM.render(
   <React.StrictMode>
