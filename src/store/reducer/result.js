@@ -3,6 +3,12 @@ import {updatedObject} from '../utility'
 const initialState ={
     result:[]
 }
+const deleteResult =(state , action)=>{
+    const updateResult = state.result.filter((result ,index)=>
+    result.id !== action.resultElId)
+    return updatedObject(state ,{result:updateResult})
+
+}
 const reducer=(state=initialState ,action)=>{
     switch(action.type)
     {
@@ -13,9 +19,7 @@ const reducer=(state=initialState ,action)=>{
             
 
     case actionTypes.DELETE_RESULT:
-       const updateResult = state.result.filter((result ,index)=>
-       result.id !== action.resultElId)
-       return updatedObject(state ,{result:updateResult})
+        return deleteResult(state,action)
          
     }
 return state;
